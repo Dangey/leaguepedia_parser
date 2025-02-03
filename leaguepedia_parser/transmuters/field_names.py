@@ -69,6 +69,25 @@ game_players_fields = {
     # "Players.SoloqueueIds",
 }
 
+# Match
+match_fields = {
+    "MatchId",
+    "DateTime_UTC",
+    "Team1",
+    "Team2",
+    "Team1Final",
+    "Team2Final",
+    "Winner",
+    "Team1Points",
+    "Team2Points",
+    "Team1PointsTB",
+    "Team2PointsTB",
+    "Team1Score",
+    "Team2Score",
+    "BestOf",
+    "Round",
+    "OverviewPage",
+}
 
 # Ordered in the draft order for pro play as of June 2020
 picks_bans_fields = [
