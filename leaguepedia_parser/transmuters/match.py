@@ -7,6 +7,7 @@ class LeaguepediaMatch:
     startDT: str
     matchDay: int
     bestOf: int
+    winner: str
 
     teams: list
 
@@ -20,26 +21,25 @@ class LeaguepediaMatchTeam:
     isWinner: bool
 
 def transmute_match(match: dict) -> LeaguepediaMatch:
-    teamOne = match["Team1"]
-    teamTwo = match["Team2"]
-    winner = match["Winner"]
+    winnerId = match["Winner"]
     return LeaguepediaMatch(
         matchId=match["MatchId"],
         startDT=match["DateTime UTC"],
         matchDay=match["MatchDay"],
         bestOf=match["BestOf"],
+        winner=winnerId,
         teams=[
             LeaguepediaMatchTeam(
                 id=1,
-                name=teamOne,
+                name=match["Team1"],
                 score=match["Team1Score"],
-                isWinner=(winner == teamOne),
+                isWinner=(winnerId == "1"),
             ),
             LeaguepediaMatchTeam(
                 id=2,
-                name=teamTwo,
+                name=match["Team2"],
                 score=match["Team2Score"],
-                isWinner=(winner == teamTwo),
+                isWinner=(winnerId == "2"),
             ),
         ],
         overviewPage=match["OverviewPage"],

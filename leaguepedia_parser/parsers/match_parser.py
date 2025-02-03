@@ -1,7 +1,7 @@
 from typing import List
 from leaguepedia_parser.site.leaguepedia import leaguepedia
 from leaguepedia_parser.transmuters.field_names import match_fields
-from leaguepedia_parser.transmuters.tournament import (
+from leaguepedia_parser.transmuters.match import (
     transmute_match,
     LeaguepediaMatch,
 )

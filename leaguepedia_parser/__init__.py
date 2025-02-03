@@ -10,3 +10,4 @@ from leaguepedia_parser.parsers.team_parser import (
     get_team_thumbnail,
     get_all_team_assets
 )
+from leaguepedia_parser.parsers.match_parser import get_matches

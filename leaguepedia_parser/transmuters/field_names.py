@@ -84,6 +84,7 @@ match_fields = {
     "Team2PointsTB",
     "Team1Score",
     "Team2Score",
+    "MatchDay",
     "BestOf",
     "Round",
     "OverviewPage",
