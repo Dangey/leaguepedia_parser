@@ -22,6 +22,8 @@ class LeaguepediaTournament:
 
     overviewPage: str
 
+def __getitem__(self, key):
+    return self.data[key]
 
 def transmute_tournament(tournament: dict) -> LeaguepediaTournament:
     return LeaguepediaTournament(
