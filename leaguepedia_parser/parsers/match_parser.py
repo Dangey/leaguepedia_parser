@@ -8,15 +8,15 @@ from leaguepedia_parser.transmuters.match import (
 
 
 def get_matches(tournament_overview_page=None, **kwargs) -> List[LeaguepediaMatch]:
-    """Returns the list of games played in a tournament.
+    """Returns the list of matches in a tournament.
 
-    Returns basic information about all games played in a tournament.
+    Returns basic information about all matches played in a tournament.
 
     Args:
         tournament_overview_page: tournament overview page, acquired from get_tournaments().
 
     Returns:
-        A list of LolGame with basic game information.
+        A list of tournament matches.
     """
 
     matches = leaguepedia.query(
