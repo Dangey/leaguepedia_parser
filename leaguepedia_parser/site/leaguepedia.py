@@ -23,8 +23,17 @@ class LeaguepediaSite:
 
         Used for ghost loading the class during package import.
         """
-        # If not, we create the self.client object as our way to interact with the wiki
-        self._site = EsportsClient("lol")
+
+        # auth via MK_USER, MK_PASS
+        import os
+        if not os.getenv("MK_USER") and not os.getenv("MK_PASS"):
+            self._site = EsportsClient("lol")
+        else:
+            credentials = AuthCredentials(
+                username=os.getenv("MK_USER"),
+                password=os.getenv("MK_PASS")
+            )
+            self._site = EsportsClient("lol", credentials=credentials)
 
     def query(self, **kwargs) -> list:
         """Issues a cargo query to leaguepedia.
