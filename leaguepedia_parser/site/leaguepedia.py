@@ -26,14 +26,11 @@ class LeaguepediaSite:
 
         # auth via MK_USER, MK_PASS
         import os
-        if not os.getenv("MK_USER") and not os.getenv("MK_PASS"):
-            self._site = EsportsClient("lol")
-        else:
-            credentials = AuthCredentials(
-                username=os.getenv("MK_USER"),
-                password=os.getenv("MK_PASS")
-            )
+        if os.getenv("WIKI_USERNAME_BOT") and os.getenv("WIKI_PASSWORD_BOT"):
+            credentials = AuthCredentials(user_file="bot")
             self._site = EsportsClient("lol", credentials=credentials)
+        else:
+            self._site = EsportsClient("lol")
 
     def query(self, **kwargs) -> list:
         """Issues a cargo query to leaguepedia.
