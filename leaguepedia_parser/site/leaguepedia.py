@@ -1,5 +1,5 @@
 from mwrogue.esports_client import EsportsClient
-
+from mwrogue.auth_credentials import AuthCredentials
 
 class LeaguepediaSite:
     """A ghost loaded class that handles Leaguepedia connection and some caching.
@@ -23,8 +23,11 @@ class LeaguepediaSite:
 
         Used for ghost loading the class during package import.
         """
-        # If not, we create the self.client object as our way to interact with the wiki
-        self._site = EsportsClient("lol")
+        if os.getenv("WIKI_USERNAME_BOT") and os.getenv("WIKI_PASSWORD_BOT"):
+            credentials = AuthCredentials(user_file="bot")
+            self._site = EsportsClient("lol", credentials=credentials)
+        else:
+            self._site = EsportsClient("lol")
 
     def query(self, **kwargs) -> list:
         """Issues a cargo query to leaguepedia.
