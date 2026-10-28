@@ -1,5 +1,5 @@
 from mwrogue.esports_client import EsportsClient
-
+from mwrogue.auth_credentials import AuthCredentials
 
 class LeaguepediaSite:
     """A ghost loaded class that handles Leaguepedia connection and some caching.
