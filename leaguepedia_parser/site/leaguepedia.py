@@ -23,6 +23,7 @@ class LeaguepediaSite:
 
         Used for ghost loading the class during package import.
         """
+        import os
         if os.getenv("WIKI_USERNAME_BOT") and os.getenv("WIKI_PASSWORD_BOT"):
             credentials = AuthCredentials(user_file="bot")
             self._site = EsportsClient("lol", credentials=credentials)
